@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: my-python-deployment
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: my-python-app
+
+  template:
+    metadata:
+      labels:
+        app: my-python-app
+
+    spec:
+      containers:
+        - name: my-python-container
+          image: navyamyadarapu/my-python-app:v3
+          ports:
+            - containerPort: 5000
